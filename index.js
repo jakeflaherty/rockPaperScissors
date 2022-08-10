@@ -73,7 +73,7 @@ function game() {
 
         }
     }
-    return `Player scored ${playerScore}, while the computer scored ${compScore}`;
+    return `Final Results: \nPlayer: ${playerScore} \nComputer: ${compScore}`;
 }
 
 let playerSelection;
