@@ -73,6 +73,15 @@ function game() {
 
         }
     }
+    if (playerScore > compScore) {
+        console.log("You won! :-)");
+    }
+    else if (compScore > playerScore) {
+        console.log("You lost! :'(");
+    }
+    else if (playerScore === compScore) {
+        console.log("It's a draw!");
+    }
     return `Final Results: \nPlayer: ${playerScore} \nComputer: ${compScore}`;
 }
 
