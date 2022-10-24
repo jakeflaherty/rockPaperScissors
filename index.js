@@ -21,37 +21,73 @@ else {
 // play one round of rps
 function playRound(playerSelection, computerSelection) {
     const player = playerSelection.toLowerCase();
-    if (player === computerSelection) {
-        return "It's a tie!";
-    }
-    if (player === "rock") {
-        if (computerSelection === "paper") {
-            return "Paper covers rock! The computer wins this round...";
+    while (playerScore < 5 && compScore < 5){
+        if (player === computerSelection) {
+            return "It's a tie!";
         }
-        else if (computerSelection === "scissors") {
-             return "Rock beats scissors! The player wins this round...";
+        if (player === "rock") {
+            if (computerSelection === "paper") {
+                compScore++;
+                return "Paper covers rock! The computer wins this round...";
+            }
+            else if (computerSelection === "scissors") {
+                playerScore++;
+                 return "Rock beats scissors! The player wins this round...";
+            }
         }
-    }
-    if (player === "paper") {
-        if (computerSelection === "rock") {
-            return "Paper covers rock! The player wins this round...";
+        if (player === "paper") {
+            if (computerSelection === "rock") {
+                playerScore++;
+                return "Paper covers rock! The player wins this round...";
+            }
+            else if (computerSelection === "scissors") {
+                compScore++;
+                return "Scissors cuts paper! The computer wins this round...";
+            }
         }
-        else if (computerSelection === "scissors") {
-            return "Scissors cuts paper! The computer wins this round...";
+        if (player === "scissors") {
+            if (computerSelection === "rock") {
+                compScore++;
+                return "Rock breaks scissors! The computer wins this round...";
+            }
+            else if (computerSelection === "paper") {
+                playerScore++;
+                return "Scissors cuts paper! The player wins this round...";
+            }
         }
-    }
-    if (player === "scissors") {
-        if (computerSelection === "rock") {
-            return "Rock breaks scissors! The computer wins this round...";
-        }
-        else if (computerSelection === "paper") {
-            return "Scissors cuts paper! The player wins this round...";
-        }
-    }
+    } 
+    console.log(playerScore, compScore);
 
     
     
 }
+
+let playerScore = 0;
+let compScore = 0;
+
+
+const btn1 = document.querySelector('#btn1');
+btn1.addEventListener('click', function (e) {
+console.log(e);
+console.log(playRound(e.target.innerHTML,getComputerChoice()));
+});
+
+const btn2 = document.querySelector('#btn2');
+btn2.addEventListener('click', function (e) {
+console.log(e);
+console.log(playRound(e.target.innerHTML,getComputerChoice()));
+});
+
+const btn3 = document.querySelector('#btn3');
+btn3.addEventListener('click', function (e) {
+console.log(e);
+console.log(playRound(e.target.innerHTML,getComputerChoice()));
+});
+
+
+
+
+/*
 // play 5 rounds of rps and output results of each round to console
 function game() {
     let playerScore = 0;
@@ -83,8 +119,8 @@ function game() {
         console.log("It's a draw!");
     }
     return `Final Results: \nPlayer: ${playerScore} \nComputer: ${compScore}`;
-}
+}*/
 
 let playerSelection;
 let computerSelection;
-console.log(game());
+//console.log(game());
